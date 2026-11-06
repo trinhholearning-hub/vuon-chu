@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vườn Chữ — Học tiếng Anh cùng Mầm</title>
+<meta name="description" content="Game học tiếng Anh cho trẻ em: mỗi bài học là một hạt giống, mỗi lần hoàn thành là một bước lên cấp và một bông hoa mới trong vườn.">
+<meta name="theme-color" content="#FFFCF3">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vườn Chữ — Học tiếng Anh cùng Mầm">
+<meta property="og:description" content="Game học tiếng Anh cho bé: 24 bài, 73 từ vựng, nghe – nhìn – điền chữ. Mỗi bài xong là một bước lên cấp và một bông hoa mới.">
+<meta property="og:image" content="icons/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail">
+    <div class="rail__logo" data-icon="sprout" aria-hidden="true"></div>
+    <button class="rail__btn is-active" data-nav="path"><span data-icon="home"></span><b>Vườn</b></button>
+    <button class="rail__btn" data-nav="collection"><span data-icon="book"></span><b>Sổ từ</b></button>
+    <button class="rail__btn" data-nav="shop"><span data-icon="bag"></span><b>Chợ lá</b></button>
+    <div class="rail__spacer"></div>
+    <div class="rail__lvl"><b id="railLevel">1</b><small>Cấp</small></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="chips">
+        <span class="chip chip--streak" title="Chuỗi ngày học"><i data-icon="flame"></i><b id="chipStreak">0</b></span>
+        <span class="chip chip--heart" title="Tim"><i data-icon="heart"></i><b id="chipHearts">5</b></span>
+        <span class="chip chip--leaf" title="Lá"><i data-icon="leaf"></i><b id="chipLeaves">0</b></span>
+        <span class="chip chip--xp" title="Điểm kinh nghiệm"><i data-icon="bolt"></i><b id="chipXp">0</b></span>
+      </div>
+      <div class="topbar__right">
+        <div class="lvlpill"><b id="lvlNum">1</b><span id="lvlTitle">Mầm non</span></div>
+        <button class="iconbtn" id="soundBtn" aria-pressed="true" title="Bật/tắt âm thanh" aria-label="Bật/tắt âm thanh"></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen is-on" id="screen-path">
+        <div class="pathwrap">
+          <div class="pathmain" id="pathMain"></div>
+          <aside class="side">
+            <div class="card goalcard">
+              <div class="ring">
+                <svg width="82" height="82" viewBox="0 0 82 82" aria-hidden="true">
+                  <circle class="ring__track" cx="41" cy="41" r="34"></circle>
+                  <circle class="ring__fill" id="goalRing" cx="41" cy="41" r="34"
+                    stroke-dasharray="213.6" stroke-dashoffset="213.6"></circle>
+                </svg>
+                <div class="ring__txt" id="goalPct">0%</div>
+              </div>
+              <div class="goalcard__meta">
+                <p class="eyebrow">Mục tiêu hôm nay</p>
+                <h3 id="goalTitle">40 XP</h3>
+                <p id="goalSub">Con còn 40 XP nữa thôi.</p>
+              </div>
+            </div>
+            <div class="card card--garden">
+              <p class="eyebrow">Khay vườn của con</p>
+              <h3 id="gardenCount">0 bông hoa</h3>
+              <div class="garden__bed" id="gardenBed"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-lesson">
+        <div class="lesson">
+          <div class="lesson__bar">
+            <button class="iconbtn" id="quitLesson" title="Thoát bài" aria-label="Thoát bài">✕</button>
+            <div class="segs" id="segs" aria-hidden="true"></div>
+            <div class="hearts" id="lessonHearts" aria-label="Số tim còn lại"></div>
+          </div>
+          <div class="qcard">
+            <span class="doodles" data-doodle></span>
+            <p class="qcard__prompt" id="qPrompt"></p>
+            <div class="stage" id="qStage"></div>
+            <div class="opts" id="qOpts"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-result"></section>
+
+      <section class="screen" id="screen-collection">
+        <div class="collhead">
+          <div>
+            <p class="eyebrow">Sổ từ của con</p>
+            <h1>Những từ đã trồng</h1>
+            <p id="collSub">Mỗi từ là một hạt giống con đã gieo.</p>
+          </div>
+          <div class="lvlpill"><b id="collLevel">1</b><span id="collTitle">Mầm non</span></div>
+        </div>
+        <div class="badges" id="badges"></div>
+        <div class="wordgrid" id="wordgrid"></div>
+        <div class="collfoot"><button class="linkbtn" id="resetBtn" type="button">Bắt đầu lại từ đầu</button></div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <button class="is-active" data-nav="path"><span data-icon="home"></span><b>Vườn</b></button>
+      <button data-nav="collection"><span data-icon="book"></span><b>Sổ từ</b></button>
+      <button data-nav="shop"><span data-icon="bag"></span><b>Chợ lá</b></button>
+    </nav>
+  </div>
+</div>
+
+<div class="feedback" id="feedback" aria-live="polite">
+  <div class="feedback__inner">
+    <span class="feedback__icon" id="fbIcon">✓</span>
+    <span class="feedback__txt" id="fbTxt">Chính xác!</span>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true"></div>
+<canvas id="confetti" style="position:fixed;inset:0;pointer-events:none;z-index:90;display:none"></canvas>
+
+<script src="data/content.js" defer></script>
+<script src="assets/ui.js" defer></script>
+<script src="assets/audio.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

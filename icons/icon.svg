@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Vườn Chữ">
+  <defs>
+    <clipPath id="r"><rect x="6" y="6" width="500" height="500" rx="112"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect x="6" y="6" width="500" height="500" rx="112" fill="#FFFCF3"/>
+    <circle cx="70" cy="40" r="150" fill="#F2A93B" opacity=".16"/>
+    <circle cx="470" cy="470" r="150" fill="#4E9CD3" opacity=".13"/>
+    <circle cx="450" cy="30" r="110" fill="#E56C9B" opacity=".12"/>
+    <ellipse cx="256" cy="469" rx="108" ry="13" fill="#EAE4D6"/>
+    <path d="M256 248v68" stroke="#2B2B2B" stroke-width="13" stroke-linecap="round"/>
+    <path d="M256 296C236 260 206 240 172 248c48 34 74 46 84 48z" fill="#D8EFD9" stroke="#2B2B2B" stroke-width="13" stroke-linejoin="round"/>
+    <path d="M256 302c20-40 54-54 84-46-16 22-42 40-84 46z" fill="#D8EFD9" stroke="#2B2B2B" stroke-width="13" stroke-linejoin="round"/>
+    <path d="M176 346h160l-18 114H194z" fill="#FFD9A0" stroke="#2B2B2B" stroke-width="13" stroke-linejoin="round"/>
+    <g stroke="#C98F3A" stroke-width="5" stroke-linecap="round">
+      <path d="M214 360l-6 84M246 360l-2 88M278 360l2 88M310 360l6 84"/>
+    </g>
+    <rect x="166" y="308" width="180" height="38" fill="#FFF8E9" stroke="#2B2B2B" stroke-width="13"/>
+    <circle cx="256" cy="166" r="86" fill="#FFF8E9" stroke="#2B2B2B" stroke-width="13"/>
+    <circle cx="224" cy="154" r="10" fill="#2B2B2B"/>
+    <circle cx="288" cy="154" r="10" fill="#2B2B2B"/>
+    <path d="M230 188c13 16 39 16 52 0" fill="none" stroke="#2B2B2B" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="206" cy="184" r="9" fill="#FFD5CB"/>
+    <circle cx="306" cy="184" r="9" fill="#FFD5CB"/>
+  </g>
+  <rect x="6" y="6" width="500" height="500" rx="112" fill="none" stroke="#2B2B2B" stroke-width="10"/>
+</svg>
